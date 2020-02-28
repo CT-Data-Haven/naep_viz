@@ -60,15 +60,15 @@ const compileHeader = (loc) => {
 };
 
 ///////////// viz
-const colorscale = (l, location) => {
+const colorscale = (l) => {
   // #CC6677, #882255, #6699CC
   switch (l) {
     case 'Connecticut':
       return 'rgba(136, 34, 85, 1.00)';
     case 'National':
       return 'rgba(204, 102, 119, 1.00)';
-    case location:
-      return 'rgba(102, 153, 204, 1.00)';
+    // case location:
+    //   return 'rgba(102, 153, 204, 1.00)';
     default:
       return 'rgba(135, 135, 135, 0.60)';
   }

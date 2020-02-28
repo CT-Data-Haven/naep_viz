@@ -71,7 +71,7 @@ const App = () => {
         </Row>
 
         <Row>
-          <Col>
+          <Col className='px-0'>
             <Stage
               meta={ topicMeta[comparison] }
               location={ location }

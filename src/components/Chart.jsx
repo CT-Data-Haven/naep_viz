@@ -29,18 +29,18 @@ const Chart = (props) => {
         }] }
         margin={{ top: 20, right: 5, bottom: 60, left: 5 }}
         style={ (d) => ({
-          fill: props.colorscale(d.jurisdiction, props.location),
+          fill: props.colorscale(d.jurisdiction),
           stroke: 'white',
           strokeWidth: '0.5px',
           // opacity: 0.6
         }) }
         pieceHoverAnnotation={ [{
           type: 'highlight',
-          style: (d) => ({
-            opacity: 1.0,
-            stroke: '#666',
-            strokeWidth: '2px'
-          })
+          // style: (d) => ({
+          //   opacity: 1.0,
+          //   stroke: '#666',
+          //   strokeWidth: '2px'
+          // })
         }, {
           type: 'frame-hover'
         }] }
@@ -50,11 +50,39 @@ const Chart = (props) => {
         customHoverBehavior={ props.onHover }
         pieceIDAccessor='jurisdiction'
         baseMarkProps={{
-          transitionDuration: { fill: 100 }
+          transitionDuration: { fill: 200 }
         }}
+        svgAnnotationRules={ hoverDot }
       />
     </div>
   );
+};
+
+const hoverDot = ({ d, rScale }) => {
+  if (d.type === 'highlight') {
+    const { x, y } = d;
+    const missing = isNaN(x) || isNaN(y);
+    // const coords = missing ? [0, 0] : screenCoordinates;
+    if (missing) {
+      return null;
+    } else {
+      return (
+        <g >
+          <circle
+            className='hover'
+            cx={ !missing && x }
+            cy={ !missing && y }
+
+            r={ 14 }
+            opacity={ 1.0 }
+            stroke={ '#666' }
+            strokeWidth={ '2px' }
+            fill={ '#6699CC' }
+          />
+        </g>
+      );
+    }
+  }
 };
 
 export default Chart;

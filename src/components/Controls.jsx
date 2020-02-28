@@ -11,7 +11,7 @@ const Controls = (props) => {
     <div className='Controls'>
       <Form>
         <Row>
-          <Col sm={ 6 } lg={ 3 }>
+          <Col sm={ 6 } lg={ 2 }>
             <Form.Group controlId='_subject'>
               <Form.Label>Subject</Form.Label>
               <Form.Control as='select' name='_subject' className='custom-select' ref={ register } onChange={ props.onChange }>{
@@ -22,7 +22,7 @@ const Controls = (props) => {
             </Form.Group>
           </Col>
 
-          <Col sm={ 6 } lg={ 3 }>
+          <Col sm={ 6 } lg={ 2 }>
             <Form.Group controlId='_grade'>
               <Form.Label>Grade</Form.Label>
               <Form.Control as='select' name='_grade' className='custom-select' ref={ register } onChange={ props.onChange }>{
@@ -44,7 +44,7 @@ const Controls = (props) => {
             </Form.Group>
           </Col>
 
-          <Col sm={ 6 } lg={ 3 }>
+          <Col sm={ 6 } lg={ 5 }>
             <Form.Group controlId='_comparison'>
               <Form.Label>Student groups</Form.Label>
               <Form.Control as='select' name='_comparison' className='custom-select' ref={ register } onChange={ props.onChange }>{
