@@ -51,7 +51,7 @@ const Controls = (props) => {
               <Form.Label>Student groups</Form.Label>
               <Form.Control as='select' name='_comparison' className='custom-select' ref={ register } onChange={ props.onChange }>{
                 props.comparisons.map((d, i) => (
-                  <option key={ `${ d.abbr }-select` } value={ d.compare }>{ d.displayCompare }</option>
+                  <option key={ `${ d.compare }-select` } value={ d.compare }>{ d.displayCompare }</option>
                 ))
               }</Form.Control>
             </Form.Group>
