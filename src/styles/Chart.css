@@ -1,0 +1,36 @@
+.Chart {
+  min-width: 300px;
+  margin: 1em 0;
+}
+
+.Chart .axis text {
+  fill: #444;
+}
+
+.Chart .axis text.axis-label {
+  font-size: 0.9em;
+}
+
+.Chart .axis path {
+  stroke: #ccc;
+}
+
+.Chart .axis line.axis-baseline {
+  stroke: #bbb;
+  stroke-width: 2px;
+}
+
+.Chart .axis .axis-title text {
+  font-size: 0.85em;
+}
+
+.Chart .tooltip-content {
+  color: black;
+  font-size: 0.9em;
+  position: relative;
+  pointer-events: none;
+  z-index: 1000;
+  transform: translate(-50%, -35pt);
+  text-align: center;
+  font-weight: bold;
+}
