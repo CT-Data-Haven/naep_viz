@@ -12,7 +12,7 @@ const Stage = ({ meta, children, location, ...restProps }) =>  (
         <Card.Subtitle>{ meta && compileHeader(location)({ location, ...meta, ...restProps }) }</Card.Subtitle>
         { children }
       </Card.Body>
-      <Card.Footer className='text-muted'>
+      <Card.Footer>
         <p>Source: 2019 National Assessment for Educational Progress overseen by the U.S. Department of Education</p>
         <p>Camille Seaberry, DataHaven</p>
       </Card.Footer>
