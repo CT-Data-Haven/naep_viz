@@ -60,17 +60,6 @@ const App = () => {
     <div className='App'>
       <Container>
         <Row>
-          <FormContext { ...formMethods }>
-            <Controls
-              onChange={ formMethods.handleSubmit(onFormChange) }
-              variable={ variable }
-              comparisons={ getComparisons(topicMeta) }
-              { ...meta }
-            />
-          </FormContext>
-        </Row>
-
-        <Row>
           <Col className='px-0'>
             <Stage
               meta={ topicMeta[comparison] }
@@ -86,8 +75,19 @@ const App = () => {
                 location={ location }
                 abbr={ abbrs[location] }
               />
+              <FormContext { ...formMethods }>
+                <Controls
+                  onChange={ formMethods.handleSubmit(onFormChange) }
+                  variable={ variable }
+                  comparisons={ getComparisons(topicMeta) }
+                  { ...meta }
+                />
+              </FormContext>
             </Stage>
           </Col>
+        </Row>
+
+        <Row>
         </Row>
       </Container>
     </div>

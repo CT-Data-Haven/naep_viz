@@ -8,7 +8,7 @@ const Stage = ({ meta, children, location, ...restProps }) =>  (
   <div className='Stage'>
     <Card variant='light'>
       <Card.Body>
-        <Card.Title as='h5'>{ meta && meta.displayCompare }</Card.Title>
+        <Card.Title as='h5'>{ meta && (meta.displayCompare + ' achievement gap') }</Card.Title>
         <Card.Subtitle>{ meta && compileHeader(location)({ location, ...meta, ...restProps }) }</Card.Subtitle>
         { children }
       </Card.Body>

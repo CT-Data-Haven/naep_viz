@@ -3,6 +3,8 @@ import { Form, Col, Row } from 'react-bootstrap';
 import { useFormContext } from 'react-hook-form';
 import { makeTitle } from './utils.js';
 
+import '../styles/Controls.css';
+
 const Controls = (props) => {
   const { register } = useFormContext();
   const variables = Object.keys(props.variables);
