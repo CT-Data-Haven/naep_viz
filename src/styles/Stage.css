@@ -3,7 +3,7 @@
 }
 
 .Stage .card-subtitle {
-  height: 2em;
+  min-height: 2em;
 }
 
 .Stage p {

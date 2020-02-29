@@ -30,7 +30,7 @@
   position: relative;
   pointer-events: none;
   z-index: 1000;
-  transform: translate(-50%, -35pt);
+  transform: translate(-50%, -30pt);
   text-align: center;
   font-weight: bold;
 }
