@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect, useParams, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect, useParams } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useForm, FormContext } from 'react-hook-form';
 import { getComparisons, getHeadlineData, colorscale, sortMeta } from './components/utils.js';
@@ -20,20 +20,15 @@ const App = () => (
   <Router basename={ process.env.PUBLIC_URL + '/' }>
     <Switch>
       <Route exact path='/' render={ () => <Redirect to='/race' /> } />
-      <Route exact path='/race'>
-        <View id='race/ethnicity' />
-      </Route>
-      <Route exact path='/family_income'>
-        <View id='family_income' />
-      </Route>
+      <Route path='/:id' children={ <View /> } />
     </Switch>
   </Router>
 );
 
 
 
-const View = ({ id }) => {
-  // let { id } = useParams();
+const View = () => {
+  let { id } = useParams();
   // const id = useLocation().pathname.substring(1);
   const variable_keys = sortMeta(meta.variables, id);
 
