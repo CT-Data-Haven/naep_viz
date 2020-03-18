@@ -47,7 +47,7 @@ const getHeadlineData = (data, value, key = 'jurisdiction') => {
 const sortMeta = (meta, first) => (
   _.chain(meta)
     .keys()
-    .sortBy((k) => k === first ? 0 : 1)
+    .sortBy((k) => _.startsWith(k, first)? 0 : 1)
     .value()
 );
 

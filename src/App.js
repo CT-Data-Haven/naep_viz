@@ -17,7 +17,7 @@ import abbrs from './data/state_abbr.json';
 
 
 const App = () => (
-  <Router>
+  <Router basename='/naep_viz/'>
     <Switch>
       <Route exact path='/' render={ () => <Redirect to='/race/ethnicity' /> } />
       <Route path='/:id' children={ <View /> } />
