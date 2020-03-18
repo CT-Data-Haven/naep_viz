@@ -17,14 +17,13 @@ import abbrs from './data/state_abbr.json';
 
 
 const App = () => (
-  <Router basename='/naep_viz/'>
+  <Router basename={ process.env.PUBLIC_URL }>
     <Switch>
       <Route exact path='/' render={ () => <Redirect to='/race' /> } />
-      {/* <Route exact={ false } path='/:id' children={ <View /> } /> */}
-      <Route path='/race'>
+      <Route exact path='/race'>
         <View id='race/ethnicity' />
       </Route>
-      <Route path='/family_income'>
+      <Route exact path='/family_income'>
         <View id='family_income' />
       </Route>
     </Switch>
