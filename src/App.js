@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect, useParams, useLocation } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useForm, FormContext } from 'react-hook-form';
 import { getComparisons, getHeadlineData, colorscale, sortMeta } from './components/utils.js';
@@ -19,17 +19,23 @@ import abbrs from './data/state_abbr.json';
 const App = () => (
   <Router basename='/naep_viz/'>
     <Switch>
-      <Route exact path='/' render={ () => <Redirect to='/race/ethnicity' /> } />
-      <Route path='/:id' children={ <View /> } />
+      <Route exact path='/' render={ () => <Redirect to='/race' /> } />
+      {/* <Route exact={ false } path='/:id' children={ <View /> } /> */}
+      <Route path='/race'>
+        <View id='race/ethnicity' />
+      </Route>
+      <Route path='/family_income'>
+        <View id='family_income' />
+      </Route>
     </Switch>
   </Router>
 );
 
 
 
-const View = () => {
-  let { id } = useParams();
-
+const View = ({ id }) => {
+  // let { id } = useParams();
+  // const id = useLocation().pathname.substring(1);
   const variable_keys = sortMeta(meta.variables, id);
 
   const formMethods = useForm({
