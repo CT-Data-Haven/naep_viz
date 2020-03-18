@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route, Redirect, useParams } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useForm, FormContext } from 'react-hook-form';
-import { getComparisons, getHeadlineData, colorscale } from './components/utils.js';
+import { getComparisons, getHeadlineData, colorscale, sortMeta } from './components/utils.js';
 
 import Stage from './components/Stage';
 import Chart from './components/Chart';
@@ -13,13 +14,29 @@ import data from './data/naep_data.json';
 import meta from './data/naep_meta.json';
 import abbrs from './data/state_abbr.json';
 
-const App = () => {
+
+
+const App = () => (
+  <Router>
+    <Switch>
+      <Route exact path='/' render={ () => <Redirect to='/race/ethnicity' /> } />
+      <Route path='/:id' children={ <View /> } />
+    </Switch>
+  </Router>
+);
+
+
+
+const View = () => {
+  let { id } = useParams();
+
+  const variable_keys = sortMeta(meta.variables, id);
+
   const formMethods = useForm({
     mode: 'onChange'
   });
 
   ///////////// inits
-  const variable_keys = Object.keys(meta.variables);
   const initValues = {
     subject: meta.subjects[0],
     grade: meta.grades[0],
@@ -55,7 +72,7 @@ const App = () => {
   };
 
   const topicMeta = meta.variables[variable];
-  // console.log(topicMeta);
+
   return (
     <div className='App'>
       <Container>
@@ -81,6 +98,7 @@ const App = () => {
                   variable={ variable }
                   comparisons={ getComparisons(topicMeta) }
                   { ...meta }
+                  variables={ variable_keys }
                 />
               </FormContext>
             </Stage>

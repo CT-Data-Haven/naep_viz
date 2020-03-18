@@ -44,6 +44,13 @@ const getHeadlineData = (data, value, key = 'jurisdiction') => {
     .value();
 };
 
+const sortMeta = (meta, first) => (
+  _.chain(meta)
+    .keys()
+    .sortBy((k) => k === first ? 0 : 1)
+    .value()
+);
+
 ///////////// strings & display
 const fmt = (d) => (
   _.isNil(d) ? 'N/A' : (d + '%')
@@ -74,6 +81,11 @@ const colorscale = (l) => {
   }
 };
 
+//////////// routing
+const makePaths = (keys) => (
+  _.zipObject(keys, _.map(keys, (k) => _.replace(k, /\W/, '_')))
+);
+
 
 //////////////////////////
 
@@ -84,6 +96,8 @@ export {
   getComparisons,
   getExtent,
   getHeadlineData,
+  makePaths,
   makeTitle,
-  sortByLoc
+  sortByLoc,
+  sortMeta
 };

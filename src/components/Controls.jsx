@@ -7,7 +7,7 @@ import '../styles/Controls.css';
 
 const Controls = (props) => {
   const { register } = useFormContext();
-  const variables = Object.keys(props.variables);
+  // const variables = Object.keys(props.variables);
 
   return (
     <div className='Controls'>
@@ -39,7 +39,7 @@ const Controls = (props) => {
             <Form.Group controlId='_variable'>
               <Form.Label>Compare students by</Form.Label>
               <Form.Control as='select' name='_variable' className='custom-select' ref={ register } onChange={ props.onChange }>{
-                variables.map((d, i) => (
+                props.variables.map((d, i) => (
                   <option key={ `${ d }-select` } value={ d }>{ makeTitle(d) }</option>
                 ))
               }</Form.Control>
