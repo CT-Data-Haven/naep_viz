@@ -17,7 +17,7 @@ import abbrs from './data/state_abbr.json';
 
 
 const App = () => (
-  <Router basename={ process.env.PUBLIC_URL }>
+  <Router basename={ process.env.PUBLIC_URL + '/' }>
     <Switch>
       <Route exact path='/' render={ () => <Redirect to='/race' /> } />
       <Route exact path='/race'>
